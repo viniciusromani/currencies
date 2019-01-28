@@ -3,7 +3,7 @@ import SnapKit
 
 class CurrencyListView: UIView {
     
-    let label = UILabel()
+    let tableView = UITableView()
     
     init() {
         super.init(frame: .zero)
@@ -21,21 +21,16 @@ class CurrencyListView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(self.label)
+        self.addSubview(self.tableView)
     }
     
     private func formatViews() {
         self.backgroundColor = .white
-        
-        self.label.text = "Teste"
-        self.label.textColor = .black
-        self.label.font = UIFont.systemFont(ofSize: 16)
     }
     
     private func addConstraintsToSubviews() {
-        label.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
-            make.centerX.equalToSuperview()
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 }

@@ -22,10 +22,13 @@ extension DependencyInjection {
         
         container.register(UINavigationController.self) { _ in
             let navigationController = UINavigationController()
+            navigationController.navigationBar.barStyle = .default
             if #available(iOS 11.0, *) {
                 navigationController.navigationBar.prefersLargeTitles = true
+                let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+                navigationController.navigationBar.largeTitleTextAttributes = titleAttributes
             }
-            return UINavigationController()
+            return navigationController
         }
         
         container.register(NavigationCoordination.self) { resolver in

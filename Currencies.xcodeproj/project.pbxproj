@@ -36,6 +36,10 @@
 		A10F64D121FEE0ED005E3B3C /* CurrenciesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64D021FEE0ED005E3B3C /* CurrenciesModel.swift */; };
 		A10F64D421FEEB97005E3B3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10F64D621FEEB97005E3B3C /* Localizable.strings */; };
 		A10F64D921FEF14A005E3B3C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64D821FEF14A005E3B3C /* R.generated.swift */; };
+		A10F64DC21FF1484005E3B3C /* CurrencyListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64DB21FF1484005E3B3C /* CurrencyListTableViewDataSource.swift */; };
+		A10F64DF21FF1550005E3B3C /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64DE21FF1550005E3B3C /* UITableView+Extension.swift */; };
+		A10F64E221FF15FE005E3B3C /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64E121FF15FE005E3B3C /* CurrencyListTableViewCell.swift */; };
+		A10F64E421FF16A9005E3B3C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,10 @@
 		A10F64D021FEE0ED005E3B3C /* CurrenciesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModel.swift; sourceTree = "<group>"; };
 		A10F64D521FEEB97005E3B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10F64D821FEF14A005E3B3C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		A10F64DB21FF1484005E3B3C /* CurrencyListTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewDataSource.swift; sourceTree = "<group>"; };
+		A10F64DE21FF1550005E3B3C /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		A10F64E121FF15FE005E3B3C /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
+		A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CB4C2E24B26C0D7A1B52CC12 /* Pods_CurrenciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrenciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001934149F047875F2F676E /* Pods_Currencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,6 +203,7 @@
 		A10F649621FE65DF005E3B3C /* List */ = {
 			isa = PBXGroup;
 			children = (
+				A10F64DA21FF146E005E3B3C /* TableVIew */,
 				A10F649B21FE65FE005E3B3C /* View */,
 				A10F649421FE65D8005E3B3C /* CurrencyListViewController.swift */,
 				A10F649721FE65EE005E3B3C /* CurrencyListPresenter.swift */,
@@ -258,6 +267,7 @@
 		A10F64B321FED2B0005E3B3C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A10F64DD21FF1541005E3B3C /* Extensions */,
 				A10F64C021FEDA63005E3B3C /* Networking */,
 				A10F64D621FEEB97005E3B3C /* Localizable.strings */,
 				A10F64D821FEF14A005E3B3C /* R.generated.swift */,
@@ -332,6 +342,32 @@
 				A10F64CE21FEE05A005E3B3C /* RetrieveCurrenciesUseCase.swift */,
 			);
 			path = CurrencyList;
+			sourceTree = "<group>";
+		};
+		A10F64DA21FF146E005E3B3C /* TableVIew */ = {
+			isa = PBXGroup;
+			children = (
+				A10F64E021FF15F0005E3B3C /* Cell */,
+				A10F64DB21FF1484005E3B3C /* CurrencyListTableViewDataSource.swift */,
+			);
+			path = TableVIew;
+			sourceTree = "<group>";
+		};
+		A10F64DD21FF1541005E3B3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A10F64DE21FF1550005E3B3C /* UITableView+Extension.swift */,
+				A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A10F64E021FF15F0005E3B3C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A10F64E121FF15FE005E3B3C /* CurrencyListTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CD7318BB91BF11842A4ABEB8 /* Frameworks */ = {
@@ -540,17 +576,21 @@
 				A10F64B021FE7A86005E3B3C /* CurrencyListCoordinator.swift in Sources */,
 				A10F64C221FEDA77005E3B3C /* Route.swift in Sources */,
 				A10F649521FE65D8005E3B3C /* CurrencyListViewController.swift in Sources */,
+				A10F64E221FF15FE005E3B3C /* CurrencyListTableViewCell.swift in Sources */,
 				A10F64B521FED2C1005E3B3C /* AlamofireRequestManager.swift in Sources */,
+				A10F64E421FF16A9005E3B3C /* UIView+Extension.swift in Sources */,
 				A10F649A21FE65F8005E3B3C /* CurrencyListViewModel.swift in Sources */,
 				A10F64D921FEF14A005E3B3C /* R.generated.swift in Sources */,
 				A10F64C821FEDF1F005E3B3C /* CurrencyListRepository.swift in Sources */,
 				A10F649821FE65EE005E3B3C /* CurrencyListPresenter.swift in Sources */,
 				A10F649D21FE6608005E3B3C /* CurrencyListView.swift in Sources */,
 				A10F64A121FE7637005E3B3C /* DependencyInjection.swift in Sources */,
+				A10F64DF21FF1550005E3B3C /* UITableView+Extension.swift in Sources */,
 				A10F64C421FEDAF8005E3B3C /* Scheme.swift in Sources */,
 				A10F647221FE6413005E3B3C /* AppDelegate.swift in Sources */,
 				A10F64BA21FED7F9005E3B3C /* CurrencyEntity.swift in Sources */,
 				A10F64CF21FEE05A005E3B3C /* RetrieveCurrenciesUseCase.swift in Sources */,
+				A10F64DC21FF1484005E3B3C /* CurrencyListTableViewDataSource.swift in Sources */,
 				A10F64A421FE7825005E3B3C /* Coordinator.swift in Sources */,
 				A10F64A721FE7979005E3B3C /* ApplicationCoordinator.swift in Sources */,
 			);

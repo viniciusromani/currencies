@@ -18,7 +18,9 @@ struct CurrencyListPresenter {
                     return
             }
             
-            print("sucesso ")
+            let viewModels = model.currencies.compactMap { CurrenciesViewModel.CurrencyViewModel(mapping: $0) }
+            let viewModel = CurrenciesViewModel(currencies: viewModels)
+            self.view?.successfullyGotCurrencies(viewModel)
         }
     }
 }

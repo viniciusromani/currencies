@@ -5,7 +5,7 @@ protocol CurrencyListViewDelegate {
 }
 
 protocol CurrencyListViewProtocol {
-    func successfullyGotCurrencies()
+    func successfullyGotCurrencies(_ viewModel: CurrenciesViewModel)
     func errorGettingCurrencies()
 }
 
@@ -14,6 +14,8 @@ class CurrencyListViewController: UIViewController {
     var currencyListView: CurrencyListView!
     var presenter: CurrencyListPresenter
     let delegate: CurrencyListViewDelegate
+    lazy var dataSource = CurrencyListTableViewDataSource(tableView: self.currencyListView.tableView,
+                                                          delegate: self)
 
     init(presenter: CurrencyListPresenter,
          delegate: CurrencyListViewDelegate) {
@@ -40,11 +42,15 @@ class CurrencyListViewController: UIViewController {
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
-    func successfullyGotCurrencies() {
-        
+    func successfullyGotCurrencies(_ viewModel: CurrenciesViewModel) {
+        self.dataSource.setCurrencies(with: viewModel)
     }
     
     func errorGettingCurrencies() {
         
     }
+}
+
+extension CurrencyListViewController: CurrencyListTableViewDataSourceDelegate {
+    
 }
