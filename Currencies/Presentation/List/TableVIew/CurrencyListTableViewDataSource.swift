@@ -20,6 +20,7 @@ class CurrencyListTableViewDataSource: NSObject {
         tableView.registerCell(CurrencyListTableViewCell.self)
         
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
@@ -41,6 +42,10 @@ extension CurrencyListTableViewDataSource: UITableViewDataSource {
         cell.setCurrency(with: currency)
         return cell
     }
+}
+
+extension CurrencyListTableViewDataSource: UITableViewDelegate {
+    
 }
 
 extension CurrencyListTableViewDataSource {

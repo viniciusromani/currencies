@@ -31,9 +31,12 @@ class CurrencyListTableViewCell: UITableViewCell {
     private func formatViews() {
         self.backgroundColor = .white
         
-        self.countryImage.image = R.image.icAustralia()
+        self.countryImage.image = R.image.icFlagPlaceholder()
         self.countryImage.layer.cornerRadius = 50 / 2
+        self.countryImage.layer.borderWidth = 1
+        self.countryImage.layer.borderColor = UIColor.darkGray.cgColor
         self.countryImage.clipsToBounds = true
+        self.countryImage.contentMode = .scaleAspectFill
         
         self.countryInitials.text = "-"
         self.countryInitials.textColor = .black
@@ -46,19 +49,18 @@ class CurrencyListTableViewCell: UITableViewCell {
     
     private func addConstraintsToSubviews() {
         countryImage.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(15)
+            make.top.equalToSuperview().inset(15)
             make.left.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(15).priority(999)
             make.width.height.equalTo(50)
         }
         
         countryInitials.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
             make.left.equalTo(self.countryImage.snp.right).offset(12)
             make.centerY.equalToSuperview()
         }
         
         currency.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
             make.left.equalTo(self.countryInitials.snp.right).offset(5)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().inset(12)
