@@ -3,7 +3,7 @@ import UIKit
 class CurrencyListTableViewCell: UITableViewCell {
     private let countryImage = UIImageView()
     private let countryInitials = UILabel()
-    private let currency = UITextField()
+    let currency = UITextField()
     
     override init(style: UITableViewCell.CellStyle,
                   reuseIdentifier: String?) {
@@ -45,6 +45,8 @@ class CurrencyListTableViewCell: UITableViewCell {
         self.currency.text = "-"
         self.currency.textColor = .black
         self.currency.font = UIFont.systemFont(ofSize: 22)
+        self.currency.textAlignment = .right
+        self.currency.keyboardType = .numberPad
     }
     
     private func addConstraintsToSubviews() {

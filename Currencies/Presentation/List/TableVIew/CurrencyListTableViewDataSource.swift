@@ -45,7 +45,11 @@ extension CurrencyListTableViewDataSource: UITableViewDataSource {
 }
 
 extension CurrencyListTableViewDataSource: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let firstIndexPath = IndexPath(row: 0, section: 0)
+        tableView.moveRow(at: indexPath, to: firstIndexPath)
+    }
 }
 
 extension CurrencyListTableViewDataSource {

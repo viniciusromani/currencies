@@ -49,7 +49,7 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
         self.currencyListView.removeLoading()
         self.dataSource.setCurrencies(with: viewModel)
         
-        self.presenter.updateCurrencies()
+//        self.presenter.updateCurrencies()
     }
     
     func errorGettingCurrencies() {
