@@ -1,7 +1,9 @@
 import UIKit
 import SnapKit
 
-class CurrencyListView: UIView {
+class CurrencyListView: UIView, LoadableView {
+    
+    var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     let tableView = UITableView()
     
@@ -26,11 +28,24 @@ class CurrencyListView: UIView {
     
     private func formatViews() {
         self.backgroundColor = .white
+        
+        self.activityIndicator.color = .black
     }
     
     private func addConstraintsToSubviews() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+extension CurrencyListView {
+    func goToLoading() {
+        self.layoutIfNeeded()
+        self.showLoading(at: self)
+    }
+    
+    func removeLoading() {
+        self.hideLoading()
     }
 }

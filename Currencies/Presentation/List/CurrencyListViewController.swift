@@ -37,12 +37,16 @@ class CurrencyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = R.string.localizable.currencyListViewController_title()
+        
+        self.currencyListView.goToLoading()
         self.presenter.retrieveCurrencies()
     }
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
     func successfullyGotCurrencies(_ viewModel: CurrenciesViewModel) {
+        self.currencyListView.removeLoading()
         self.dataSource.setCurrencies(with: viewModel)
     }
     
