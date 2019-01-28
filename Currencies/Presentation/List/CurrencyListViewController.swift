@@ -34,6 +34,7 @@ class CurrencyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.presenter.retrieveCurrencies()
     }
 }
 

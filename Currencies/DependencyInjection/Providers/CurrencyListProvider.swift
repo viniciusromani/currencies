@@ -1,11 +1,18 @@
 import Foundation
 
 struct CurrencyListProvider {
-    init() {
-        
+    
+    private let currenciesRepository: CurrenciesRepository
+    
+    init(currenciesRepository: CurrenciesRepository) {
+        self.currenciesRepository = currenciesRepository
     }
     
     func presenter() -> CurrencyListPresenter {
-        return CurrencyListPresenter()
+        return CurrencyListPresenter(retrieveCurrenciesUseCase: self.getRetrieveCurrenciesUseCase())
+    }
+    
+    private func getRetrieveCurrenciesUseCase() -> RetrieveCurrenciesUseCase {
+        return RetrieveCurrenciesUseCase(repository: self.currenciesRepository)
     }
 }
