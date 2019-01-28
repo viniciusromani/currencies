@@ -5,7 +5,8 @@ protocol CurrencyListViewDelegate {
 }
 
 protocol CurrencyListViewProtocol {
-    
+    func successfullyGotCurrencies()
+    func errorGettingCurrencies()
 }
 
 class CurrencyListViewController: UIViewController {
@@ -39,5 +40,11 @@ class CurrencyListViewController: UIViewController {
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
+    func successfullyGotCurrencies() {
+        
+    }
     
+    func errorGettingCurrencies() {
+        
+    }
 }

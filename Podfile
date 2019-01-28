@@ -9,7 +9,7 @@ target 'Currencies' do
   pod 'Alamofire'
   pod 'Swinject'
   pod 'SnapKit'
-  pod 'R.swift'
+  pod 'R.swift', '~> 5.0.2'
 
   target 'CurrenciesTests' do
     inherit! :search_paths
@@ -18,7 +18,7 @@ target 'Currencies' do
 
   post_install do |installer|
       installer.pods_project.targets.each do |target|
-          if ['SnapKit', 'R.swift.Library'].include? target.name
+          if ['SnapKit'].include? target.name
               target.build_configurations.each do |config|
                   config.build_settings['SWIFT_VERSION'] = '4.0'
               end

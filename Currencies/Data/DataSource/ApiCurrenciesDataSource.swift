@@ -17,14 +17,21 @@ struct ApiCurrenciesDataSource: CurrenciesDataSource {
         self.manager.request(.get, from: url) { result, error, _ in
             guard error == nil,
                   let value = result else {
-                    let error = NSError(domain: "ApiCurrenciesDataSource",
-                                        code: 0,
-                                        userInfo: [NSLocalizedDescriptionKey: ""])
                     completion(nil, error)
                     return
             }
             
-            
+            do {
+                let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                let decoder = JSONDecoder()
+                let entity = try decoder.decode(CurrenciesEntity.self, from: data)
+                completion(entity, nil)
+            } catch {
+                let error = NSError(domain: "ApiCurrenciesDataSource",
+                                    code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: R.string.localizable.apiCurrencies_error0()])
+                completion(nil, error)
+            }
         }
     }
 }

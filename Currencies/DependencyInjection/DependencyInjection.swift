@@ -21,6 +21,10 @@ extension DependencyInjection {
         }
         
         container.register(UINavigationController.self) { _ in
+            let navigationController = UINavigationController()
+            if #available(iOS 11.0, *) {
+                navigationController.navigationBar.prefersLargeTitles = true
+            }
             return UINavigationController()
         }
         

@@ -2,16 +2,22 @@ import Foundation
 
 struct CurrenciesEntity {
     struct CurrencyEntity {
-        let countryInitials: String
-        let currency: Double
+        var countryInitials: String
+        var currency: Double
     }
     
     let currencies: [CurrencyEntity]
 }
 
-extension CurrenciesEntity.CurrencyEntity: Decodable {
+extension CurrenciesEntity: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case rates
+    }
+    
     init(from decoder: Decoder) throws {
-        self.countryInitials = ""
-        self.currency = 0
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let ratesDictionary = try container.decode([String: Double].self, forKey: .rates)
+        self.currencies = ratesDictionary.keys.compactMap { CurrencyEntity(countryInitials: $0,
+                                                                           currency: ratesDictionary[$0] ?? 0) }
     }
 }
