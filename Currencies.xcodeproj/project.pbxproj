@@ -48,6 +48,8 @@
 		A11B463A2200FE7C009C9542 /* NoRates.json in Resources */ = {isa = PBXBuildFile; fileRef = A11B46382200FE7C009C9542 /* NoRates.json */; };
 		A11B463C220103AF009C9542 /* CurrenciesModelParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463B220103AF009C9542 /* CurrenciesModelParseTests.swift */; };
 		A11B463E220109A3009C9542 /* CurrenciesViewModelParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */; };
+		A11B464022010B7F009C9542 /* DependencyInjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463F22010B7F009C9542 /* DependencyInjectionTests.swift */; };
+		A11B464222010EB9009C9542 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B464122010EB9009C9542 /* ProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		A11B46382200FE7C009C9542 /* NoRates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoRates.json; sourceTree = "<group>"; };
 		A11B463B220103AF009C9542 /* CurrenciesModelParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModelParseTests.swift; sourceTree = "<group>"; };
 		A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModelParseTests.swift; sourceTree = "<group>"; };
+		A11B463F22010B7F009C9542 /* DependencyInjectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionTests.swift; sourceTree = "<group>"; };
+		A11B464122010EB9009C9542 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
 		CB4C2E24B26C0D7A1B52CC12 /* Pods_CurrenciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrenciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001934149F047875F2F676E /* Pods_Currencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -401,6 +405,8 @@
 		A11B46292200FAEC009C9542 /* DepdencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				A11B463F22010B7F009C9542 /* DependencyInjectionTests.swift */,
+				A11B464122010EB9009C9542 /* ProviderTests.swift */,
 			);
 			path = DepdencyInjection;
 			sourceTree = "<group>";
@@ -684,8 +690,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11B464222010EB9009C9542 /* ProviderTests.swift in Sources */,
 				A11B463E220109A3009C9542 /* CurrenciesViewModelParseTests.swift in Sources */,
 				A11B463C220103AF009C9542 /* CurrenciesModelParseTests.swift in Sources */,
+				A11B464022010B7F009C9542 /* DependencyInjectionTests.swift in Sources */,
 				A11B46362200FCF2009C9542 /* CurrenciesEntityParseTests.swift in Sources */,
 				A11B462F2200FC13009C9542 /* TestableEntity.swift in Sources */,
 			);
