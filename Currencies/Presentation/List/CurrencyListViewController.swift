@@ -6,6 +6,7 @@ protocol CurrencyListViewDelegate {
 
 protocol CurrencyListViewProtocol {
     func successfullyGotCurrencies(_ viewModel: CurrenciesViewModel)
+    func reloadForCurrencyUpdate(_ viewModel: CurrenciesViewModel)
     func errorGettingCurrencies()
 }
 
@@ -50,6 +51,10 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
         self.dataSource.setCurrencies(with: viewModel)
         
         self.presenter.updateCurrenciesFromService()
+    }
+    
+    func reloadForCurrencyUpdate(_ viewModel: CurrenciesViewModel) {
+        self.dataSource.reloadForCurrencyUpdate(with: viewModel)
     }
     
     func errorGettingCurrencies() {

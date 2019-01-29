@@ -9,10 +9,15 @@ struct CurrencyListProvider {
     }
     
     func presenter() -> CurrencyListPresenter {
-        return CurrencyListPresenter(retrieveCurrenciesUseCase: self.getRetrieveCurrenciesUseCase())
+        return CurrencyListPresenter(retrieveCurrenciesUseCase: self.getRetrieveCurrenciesUseCase(),
+                                     updateCurrenciesForTypedValueUseCase: self.getUpdateCurrenciesForTypedValueUseCase())
     }
     
     private func getRetrieveCurrenciesUseCase() -> RetrieveCurrenciesUseCase {
         return RetrieveCurrenciesUseCase(repository: self.currenciesRepository)
+    }
+    
+    private func getUpdateCurrenciesForTypedValueUseCase() -> UpdateCurrenciesForTypedValueUseCase {
+        return UpdateCurrenciesForTypedValueUseCase()
     }
 }

@@ -5,12 +5,17 @@ class CurrencyListPresenter {
     var view: CurrencyListViewProtocol?
     
     private let retrieveCurrenciesUseCase: RetrieveCurrenciesUseCase
+    private let updateCurrenciesForTypedValueUseCase: UpdateCurrenciesForTypedValueUseCase
+    
     private var timer = Timer()
     private var timerTick = 0
     private var shouldUpdateCurrencies = true
+    private var currenciesViewModel: CurrenciesViewModel?
     
-    init(retrieveCurrenciesUseCase: RetrieveCurrenciesUseCase) {
+    init(retrieveCurrenciesUseCase: RetrieveCurrenciesUseCase,
+         updateCurrenciesForTypedValueUseCase: UpdateCurrenciesForTypedValueUseCase) {
         self.retrieveCurrenciesUseCase = retrieveCurrenciesUseCase
+        self.updateCurrenciesForTypedValueUseCase = updateCurrenciesForTypedValueUseCase
     }
     
     func retrieveCurrencies() {
@@ -26,6 +31,8 @@ class CurrencyListPresenter {
             let viewModels = model.currencies.compactMap { CurrenciesViewModel.CurrencyViewModel(mapping: $0) }
             let viewModel = CurrenciesViewModel(currencies: viewModels)
             self.view?.successfullyGotCurrencies(viewModel)
+            
+            self.currenciesViewModel = viewModel
         }
     }
     
@@ -54,6 +61,24 @@ class CurrencyListPresenter {
     }
     
     func isUpdatingViewModel(_ viewModel: CurrenciesViewModel.CurrencyViewModel, to string: String) {
+        guard let current = self.currenciesViewModel else {
+            return
+        }
         
+        let params = UpdateCurrenciesForTypedValueUseCase.Params(currentCurrencies: current,
+                                                                 updatedCurrency: viewModel,
+                                                                 typedValue: string)
+        let incomingModel = self.updateCurrenciesForTypedValueUseCase.execute(with: params)
+        
+        guard let model = incomingModel else {
+            return
+        }
+        
+        let viewModels = model.currencies.compactMap { CurrenciesViewModel.CurrencyViewModel(mapping: $0) }
+        let viewModel = CurrenciesViewModel(currencies: viewModels)
+//        self.view?.successfullyGotCurrencies(viewModel)
+        self.view?.reloadForCurrencyUpdate(viewModel)
+        
+        self.currenciesViewModel = viewModel
     }
 }

@@ -7,7 +7,7 @@ struct CurrenciesViewModel {
         let currency: String
     }
     
-    let currencies: [CurrencyViewModel]
+    var currencies: [CurrencyViewModel]
 }
 
 extension CurrenciesViewModel.CurrencyViewModel {

@@ -41,6 +41,7 @@
 		A10F64E221FF15FE005E3B3C /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64E121FF15FE005E3B3C /* CurrencyListTableViewCell.swift */; };
 		A10F64E421FF16A9005E3B3C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */; };
 		A11B462621FFAC4D009C9542 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B462521FFAC4D009C9542 /* LoadableView.swift */; };
+		A11B462822000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B462722000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		A10F64E121FF15FE005E3B3C /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
 		A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A11B462521FFAC4D009C9542 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		A11B462722000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrenciesForTypedValueUseCase.swift; sourceTree = "<group>"; };
 		CB4C2E24B26C0D7A1B52CC12 /* Pods_CurrenciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrenciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001934149F047875F2F676E /* Pods_Currencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				A10F64CE21FEE05A005E3B3C /* RetrieveCurrenciesUseCase.swift */,
+				A11B462722000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift */,
 			);
 			path = CurrencyList;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				A10F64CC21FEDF8A005E3B3C /* UseCase.swift in Sources */,
 				A10F64B021FE7A86005E3B3C /* CurrencyListCoordinator.swift in Sources */,
 				A10F64C221FEDA77005E3B3C /* Route.swift in Sources */,
+				A11B462822000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift in Sources */,
 				A10F649521FE65D8005E3B3C /* CurrencyListViewController.swift in Sources */,
 				A10F64E221FF15FE005E3B3C /* CurrencyListTableViewCell.swift in Sources */,
 				A10F64B521FED2C1005E3B3C /* AlamofireRequestManager.swift in Sources */,
