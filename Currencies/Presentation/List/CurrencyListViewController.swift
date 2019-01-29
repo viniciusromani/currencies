@@ -38,11 +38,34 @@ class CurrencyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = R.string.localizable.currencyListViewController_title()
+        self.prepareNavigationItem()
+//        self.setDismissKeyboard()
         
         self.currencyListView.goToLoading()
         self.presenter.retrieveCurrencies()
     }
+    
+    private func prepareNavigationItem() {
+        self.navigationItem.title = R.string.localizable.currencyListViewController_title()
+        
+//        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onRefresh))
+//        self.navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+//    private func setDismissKeyboard() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(onNavigationTap))
+//        self.navigationController?.view.addGestureRecognizer(tap)
+//    }
+//    
+//    @objc func onRefresh() {
+//        self.presenter.retrieveCurrencies()
+//    }
+//    
+//    @objc func onNavigationTap() {
+//        self.presenter.userHasFinishedUpdatingCell()
+//        self.navigationItem.rightBarButtonItem?.isEnabled = true
+//        self.currencyListView.resignFirstResponder()
+//    }
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
@@ -64,6 +87,7 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
 
 extension CurrencyListViewController: CurrencyListTableViewDataSourceDelegate {
     func willUpdateCurrency() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.presenter.willUpdateCurrencyOnCell()
     }
     

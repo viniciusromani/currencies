@@ -100,6 +100,6 @@ extension CurrencyListTableViewCell {
         
         self.countryImage.image = viewModel.icon
         self.countryInitials.text = viewModel.countryInitials
-        self.currency.text = viewModel.currency
+        self.currency.text = viewModel.currencyToDisplay
     }
 }

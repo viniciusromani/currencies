@@ -5,7 +5,8 @@ struct CurrenciesModel {
     struct CurrencyModel {
         let iconResource: ImageResource
         let countryInitials: String
-        let currency: Double
+        let currencyProportion: Double
+        let currencyToDisplay: Double
     }
     
     let currencies: [CurrencyModel]
@@ -50,7 +51,8 @@ extension CurrenciesModel.CurrencyModel {
         }
         
         self.countryInitials = entity.countryInitials
-        self.currency = entity.currency
+        self.currencyProportion = entity.currency
+        self.currencyToDisplay = entity.currency
     }
     
     init(mapping viewModel: CurrenciesViewModel.CurrencyViewModel) {
@@ -91,6 +93,7 @@ extension CurrenciesModel.CurrencyModel {
         }
         
         self.countryInitials = viewModel.countryInitials
-        self.currency = Double(viewModel.currency) ?? 0
+        self.currencyProportion = viewModel.currencyProportion
+        self.currencyToDisplay = Double(viewModel.currencyToDisplay) ?? 0
     }
 }

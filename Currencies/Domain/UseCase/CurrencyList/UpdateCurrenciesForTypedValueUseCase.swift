@@ -17,11 +17,14 @@ struct UpdateCurrenciesForTypedValueUseCase: SyncUseCase {
         unwrapped.currentCurrencies.currencies.forEach { currencyViewModel in
             let model = CurrenciesModel.CurrencyModel(mapping: currencyViewModel)
             if model.countryInitials != unwrapped.updatedCurrency.countryInitials {
-                let updatedModelCurrency = (value * model.currency) / updatedCurrencyModel.currency
+                let updatedModelCurrency = (value * model.currencyProportion) / updatedCurrencyModel.currencyProportion
                 let rounded = Double(round(10000 * updatedModelCurrency) / 10000)
+                let proportion = rounded == 0 ? model.currencyProportion: rounded
+                
                 let updatedModel = CurrenciesModel.CurrencyModel(iconResource: model.iconResource,
                                                                  countryInitials: model.countryInitials,
-                                                                 currency: rounded)
+                                                                 currencyProportion: proportion,
+                                                                 currencyToDisplay: rounded)
                 updated.append(updatedModel)
             }
         }

@@ -60,6 +60,10 @@ class CurrencyListPresenter {
         self.shouldUpdateCurrencies = false
     }
     
+    func userHasFinishedUpdatingCell() {
+        self.shouldUpdateCurrencies = true
+    }
+    
     func isUpdatingViewModel(_ viewModel: CurrenciesViewModel.CurrencyViewModel, to string: String) {
         guard let current = self.currenciesViewModel else {
             return
