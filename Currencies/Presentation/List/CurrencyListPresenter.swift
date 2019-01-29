@@ -7,6 +7,7 @@ class CurrencyListPresenter {
     private let retrieveCurrenciesUseCase: RetrieveCurrenciesUseCase
     private var timer = Timer()
     private var timerTick = 0
+    private var shouldUpdateCurrencies = true
     
     init(retrieveCurrenciesUseCase: RetrieveCurrenciesUseCase) {
         self.retrieveCurrenciesUseCase = retrieveCurrenciesUseCase
@@ -20,13 +21,15 @@ class CurrencyListPresenter {
                     return
             }
             
+            guard self.shouldUpdateCurrencies else { return }
+            
             let viewModels = model.currencies.compactMap { CurrenciesViewModel.CurrencyViewModel(mapping: $0) }
             let viewModel = CurrenciesViewModel(currencies: viewModels)
             self.view?.successfullyGotCurrencies(viewModel)
         }
     }
     
-    func updateCurrencies() {
+    func updateCurrenciesFromService() {
         self.timerTick = 0
         
         self.timer = Timer.scheduledTimer(timeInterval: 1,
@@ -44,5 +47,13 @@ class CurrencyListPresenter {
             self.retrieveCurrencies()
             self.timer.invalidate()
         }
+    }
+    
+    func willUpdateCurrencyOnCell() {
+        self.shouldUpdateCurrencies = false
+    }
+    
+    func isUpdatingViewModel(_ viewModel: CurrenciesViewModel.CurrencyViewModel, to string: String) {
+        
     }
 }

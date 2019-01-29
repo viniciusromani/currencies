@@ -1,7 +1,12 @@
 import UIKit
 
 protocol CurrencyListTableViewDataSourceDelegate {
-    
+    func willUpdateCurrency()
+    func isUpdating(_ viewModel: CurrenciesViewModel.CurrencyViewModel, to string: String)
+}
+
+protocol CurrencyListTableViewDataSourceViewDelegate {
+    func willUpdateCurrency(at cell: UITableViewCell)
 }
 
 class CurrencyListTableViewDataSource: NSObject {
@@ -40,6 +45,8 @@ extension CurrencyListTableViewDataSource: UITableViewDataSource {
         let currency = viewModel.currencies[indexPath.row]
         let cell = tableView.dequeueReusableCell(at: indexPath) as CurrencyListTableViewCell
         cell.setCurrency(with: currency)
+        cell.viewDelegate = self
+        cell.delegate = self.delegate
         return cell
     }
 }
@@ -47,8 +54,14 @@ extension CurrencyListTableViewDataSource: UITableViewDataSource {
 extension CurrencyListTableViewDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let firstIndexPath = IndexPath(row: 0, section: 0)
-        tableView.moveRow(at: indexPath, to: firstIndexPath)
+        self.moveRowToTop(at: indexPath)
+    }
+}
+
+extension CurrencyListTableViewDataSource: CurrencyListTableViewDataSourceViewDelegate {
+    func willUpdateCurrency(at cell: UITableViewCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        self.moveRowToTop(at: indexPath)
     }
 }
 
@@ -56,5 +69,11 @@ extension CurrencyListTableViewDataSource {
     func setCurrencies(with viewModel: CurrenciesViewModel) {
         self.viewModel = viewModel
         self.tableView.reloadData()
+    }
+    
+    private func moveRowToTop(at indexPath: IndexPath) {
+        let firstIndexPath = IndexPath(row: 0, section: 0)
+        self.tableView.moveRow(at: indexPath, to: firstIndexPath)
+        self.tableView.scrollToRow(at: firstIndexPath, at: .top, animated: true)
     }
 }

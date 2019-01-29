@@ -49,7 +49,7 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
         self.currencyListView.removeLoading()
         self.dataSource.setCurrencies(with: viewModel)
         
-//        self.presenter.updateCurrencies()
+        self.presenter.updateCurrenciesFromService()
     }
     
     func errorGettingCurrencies() {
@@ -58,5 +58,11 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
 }
 
 extension CurrencyListViewController: CurrencyListTableViewDataSourceDelegate {
+    func willUpdateCurrency() {
+        self.presenter.willUpdateCurrencyOnCell()
+    }
     
+    func isUpdating(_ viewModel: CurrenciesViewModel.CurrencyViewModel, to string: String) {
+        self.presenter.isUpdatingViewModel(viewModel, to: string)
+    }
 }
