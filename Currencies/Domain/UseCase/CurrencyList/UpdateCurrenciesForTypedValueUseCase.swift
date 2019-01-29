@@ -12,14 +12,16 @@ struct UpdateCurrenciesForTypedValueUseCase: SyncUseCase {
         let unwrapped = self.unwrappParams(params)
         let updatedCurrencyModel = CurrenciesModel.CurrencyModel(mapping: unwrapped.updatedCurrency)
         var updated: [CurrenciesModel.CurrencyModel] = [updatedCurrencyModel]
+        let value = Double(unwrapped.typedValue) ?? 0
         
         unwrapped.currentCurrencies.currencies.forEach { currencyViewModel in
             let model = CurrenciesModel.CurrencyModel(mapping: currencyViewModel)
             if model.countryInitials != unwrapped.updatedCurrency.countryInitials {
-                // atualizar e adicionar na lista
+                let updatedModelCurrency = (value * model.currency) / updatedCurrencyModel.currency
+                let rounded = Double(round(10000 * updatedModelCurrency) / 10000)
                 let updatedModel = CurrenciesModel.CurrencyModel(iconResource: model.iconResource,
                                                                  countryInitials: model.countryInitials,
-                                                                 currency: 10)
+                                                                 currency: rounded)
                 updated.append(updatedModel)
             }
         }
