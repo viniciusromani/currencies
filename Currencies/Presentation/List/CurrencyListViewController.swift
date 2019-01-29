@@ -39,7 +39,7 @@ class CurrencyListViewController: UIViewController {
         super.viewDidLoad()
         
         self.prepareNavigationItem()
-//        self.setDismissKeyboard()
+        self.setListenerForKeyboardDismiss()
         
         self.currencyListView.goToLoading()
         self.presenter.retrieveCurrencies()
@@ -48,24 +48,25 @@ class CurrencyListViewController: UIViewController {
     private func prepareNavigationItem() {
         self.navigationItem.title = R.string.localizable.currencyListViewController_title()
         
-//        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onRefresh))
-//        self.navigationItem.rightBarButtonItem = refreshButton
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onRefresh))
+        self.navigationItem.rightBarButtonItem = refreshButton
     }
     
-//    private func setDismissKeyboard() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(onNavigationTap))
-//        self.navigationController?.view.addGestureRecognizer(tap)
-//    }
-//    
-//    @objc func onRefresh() {
-//        self.presenter.retrieveCurrencies()
-//    }
-//    
-//    @objc func onNavigationTap() {
-//        self.presenter.userHasFinishedUpdatingCell()
-//        self.navigationItem.rightBarButtonItem?.isEnabled = true
-//        self.currencyListView.resignFirstResponder()
-//    }
+    @objc func onRefresh() {
+        self.presenter.retrieveCurrencies()
+    }
+    
+    private func setListenerForKeyboardDismiss() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onKeyboardDismiss),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc func onKeyboardDismiss() {
+        self.presenter.userHasFinishedUpdatingCell()
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {

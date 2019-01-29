@@ -26,6 +26,8 @@ class CurrencyListTableViewDataSource: NSObject {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.interactive
     }
 }
 
@@ -56,6 +58,11 @@ extension CurrencyListTableViewDataSource: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         self.moveRowToTop(at: indexPath)
         self.setFirstOnDataSource(using: indexPath)
+        
+        self.delegate.willUpdateCurrency()
+        
+        let cell = tableView.dequeueReusableCell(at: indexPath) as CurrencyListTableViewCell
+        cell.becomeFirstResponder()
     }
 }
 
