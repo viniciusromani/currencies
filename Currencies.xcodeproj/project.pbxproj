@@ -50,6 +50,7 @@
 		A11B463E220109A3009C9542 /* CurrenciesViewModelParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */; };
 		A11B464022010B7F009C9542 /* DependencyInjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463F22010B7F009C9542 /* DependencyInjectionTests.swift */; };
 		A11B464222010EB9009C9542 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B464122010EB9009C9542 /* ProviderTests.swift */; };
+		A11B464422010FF3009C9542 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B464322010FF3009C9542 /* NetworkingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModelParseTests.swift; sourceTree = "<group>"; };
 		A11B463F22010B7F009C9542 /* DependencyInjectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionTests.swift; sourceTree = "<group>"; };
 		A11B464122010EB9009C9542 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
+		A11B464322010FF3009C9542 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		CB4C2E24B26C0D7A1B52CC12 /* Pods_CurrenciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrenciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001934149F047875F2F676E /* Pods_Currencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -414,6 +416,7 @@
 		A11B462A2200FB91009C9542 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A11B464322010FF3009C9542 /* NetworkingTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				A11B464022010B7F009C9542 /* DependencyInjectionTests.swift in Sources */,
 				A11B46362200FCF2009C9542 /* CurrenciesEntityParseTests.swift in Sources */,
 				A11B462F2200FC13009C9542 /* TestableEntity.swift in Sources */,
+				A11B464422010FF3009C9542 /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
