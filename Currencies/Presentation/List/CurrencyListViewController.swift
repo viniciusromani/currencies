@@ -7,7 +7,7 @@ protocol CurrencyListViewDelegate {
 protocol CurrencyListViewProtocol {
     func successfullyGotCurrencies(_ viewModel: CurrenciesViewModel)
     func reloadForCurrencyUpdate(_ viewModel: CurrenciesViewModel)
-    func errorGettingCurrencies()
+    func errorGettingCurrencies(_ viewModel: ErrorViewModel)
 }
 
 class CurrencyListViewController: UIViewController {
@@ -81,8 +81,18 @@ extension CurrencyListViewController: CurrencyListViewProtocol {
         self.dataSource.reloadForCurrencyUpdate(with: viewModel)
     }
     
-    func errorGettingCurrencies() {
+    func errorGettingCurrencies(_ viewModel: ErrorViewModel) {
+        self.currencyListView.removeLoading()
         
+        let alert = UIAlertController(title: viewModel.title,
+                                      message: viewModel.message,
+                                      preferredStyle: .alert)
+        let viewModelAction = viewModel.okAction
+        let action = UIAlertAction(title: viewModelAction.title,
+                                   style: viewModelAction.style,
+                                   handler: viewModelAction.handler)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -20,3 +20,30 @@ extension CurrenciesViewModel.CurrencyViewModel {
     }
 }
 
+struct ErrorViewModel {
+    struct Action {
+        let title: String
+        let style: UIAlertAction.Style
+        let handler: ((UIAlertAction) -> Void)
+    }
+    
+    let title: String
+    let message: String
+    let okAction: Action
+}
+
+extension ErrorViewModel.Action {
+    init() {
+        self.title = R.string.localizable.errorAlertButton_title()
+        self.style = .default
+        self.handler = { _ in }
+    }
+}
+
+extension ErrorViewModel {
+    init() {
+        self.title = R.string.localizable.errorAlert_title()
+        self.message = R.string.localizable.errorAlert_message()
+        self.okAction = ErrorViewModel.Action()
+    }
+}

@@ -22,7 +22,8 @@ class CurrencyListPresenter {
         self.retrieveCurrenciesUseCase.execute { incomingModel, error in
             guard let model = incomingModel,
                   error == nil else {
-                    // throw error
+                    let errorViewModel = ErrorViewModel()
+                    self.view?.errorGettingCurrencies(errorViewModel)
                     return
             }
             
@@ -80,7 +81,6 @@ class CurrencyListPresenter {
         
         let viewModels = model.currencies.compactMap { CurrenciesViewModel.CurrencyViewModel(mapping: $0) }
         let viewModel = CurrenciesViewModel(currencies: viewModels)
-//        self.view?.successfullyGotCurrencies(viewModel)
         self.view?.reloadForCurrencyUpdate(viewModel)
         
         self.currenciesViewModel = viewModel

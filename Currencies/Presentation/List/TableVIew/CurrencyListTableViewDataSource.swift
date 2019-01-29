@@ -60,9 +60,6 @@ extension CurrencyListTableViewDataSource: UITableViewDelegate {
         self.setFirstOnDataSource(using: indexPath)
         
         self.delegate.willUpdateCurrency()
-        
-        let cell = tableView.dequeueReusableCell(at: indexPath) as CurrencyListTableViewCell
-        cell.becomeFirstResponder()
     }
 }
 
