@@ -20,18 +20,6 @@ class CurrencyListTableViewCell: UITableViewCell {
         self.buildViews()
     }
     
-    override var canBecomeFocused: Bool {
-        return true
-    }
-    
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
-    
-    override func becomeFirstResponder() -> Bool {
-        return self.currency.becomeFirstResponder()
-    }
-    
     private func buildViews() {
         self.addSubviews()
         self.formatViews()

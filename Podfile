@@ -13,7 +13,9 @@ target 'Currencies' do
 
   target 'CurrenciesTests' do
     inherit! :search_paths
+    
     # Pods for testing
+    pod 'Nimble', :git => 'https://github.com/Quick/Nimble.git', :commit => 'a14526900f79402de46779ba4e6929112b6a34d5'
   end
 
   post_install do |installer|

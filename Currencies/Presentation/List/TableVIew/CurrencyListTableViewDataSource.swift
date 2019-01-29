@@ -27,7 +27,7 @@ class CurrencyListTableViewDataSource: NSObject {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.interactive
+        tableView.keyboardDismissMode = .interactive
     }
 }
 

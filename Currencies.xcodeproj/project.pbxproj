@@ -12,7 +12,6 @@
 		A10F647221FE6413005E3B3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F647121FE6413005E3B3C /* AppDelegate.swift */; };
 		A10F647921FE6414005E3B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10F647821FE6414005E3B3C /* Assets.xcassets */; };
 		A10F647C21FE6414005E3B3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10F647A21FE6414005E3B3C /* LaunchScreen.storyboard */; };
-		A10F648721FE6414005E3B3C /* CurrenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F648621FE6414005E3B3C /* CurrenciesTests.swift */; };
 		A10F649521FE65D8005E3B3C /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F649421FE65D8005E3B3C /* CurrencyListViewController.swift */; };
 		A10F649821FE65EE005E3B3C /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F649721FE65EE005E3B3C /* CurrencyListPresenter.swift */; };
 		A10F649A21FE65F8005E3B3C /* CurrencyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F649921FE65F8005E3B3C /* CurrencyListViewModel.swift */; };
@@ -42,6 +41,13 @@
 		A10F64E421FF16A9005E3B3C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */; };
 		A11B462621FFAC4D009C9542 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B462521FFAC4D009C9542 /* LoadableView.swift */; };
 		A11B462822000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B462722000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift */; };
+		A11B462F2200FC13009C9542 /* TestableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B462E2200FC13009C9542 /* TestableEntity.swift */; };
+		A11B46322200FCA3009C9542 /* Rates.json in Resources */ = {isa = PBXBuildFile; fileRef = A11B46312200FCA3009C9542 /* Rates.json */; };
+		A11B46362200FCF2009C9542 /* CurrenciesEntityParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B46352200FCF2009C9542 /* CurrenciesEntityParseTests.swift */; };
+		A11B46392200FE7C009C9542 /* NoKeys.json in Resources */ = {isa = PBXBuildFile; fileRef = A11B46372200FE7C009C9542 /* NoKeys.json */; };
+		A11B463A2200FE7C009C9542 /* NoRates.json in Resources */ = {isa = PBXBuildFile; fileRef = A11B46382200FE7C009C9542 /* NoRates.json */; };
+		A11B463C220103AF009C9542 /* CurrenciesModelParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463B220103AF009C9542 /* CurrenciesModelParseTests.swift */; };
+		A11B463E220109A3009C9542 /* CurrenciesViewModelParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +71,6 @@
 		A10F647B21FE6414005E3B3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A10F647D21FE6414005E3B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10F648221FE6414005E3B3C /* CurrenciesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrenciesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10F648621FE6414005E3B3C /* CurrenciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesTests.swift; sourceTree = "<group>"; };
 		A10F648821FE6414005E3B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10F649421FE65D8005E3B3C /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		A10F649721FE65EE005E3B3C /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
@@ -96,6 +101,13 @@
 		A10F64E321FF16A9005E3B3C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A11B462521FFAC4D009C9542 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		A11B462722000F42009C9542 /* UpdateCurrenciesForTypedValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrenciesForTypedValueUseCase.swift; sourceTree = "<group>"; };
+		A11B462E2200FC13009C9542 /* TestableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEntity.swift; sourceTree = "<group>"; };
+		A11B46312200FCA3009C9542 /* Rates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rates.json; sourceTree = "<group>"; };
+		A11B46352200FCF2009C9542 /* CurrenciesEntityParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesEntityParseTests.swift; sourceTree = "<group>"; };
+		A11B46372200FE7C009C9542 /* NoKeys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoKeys.json; sourceTree = "<group>"; };
+		A11B46382200FE7C009C9542 /* NoRates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoRates.json; sourceTree = "<group>"; };
+		A11B463B220103AF009C9542 /* CurrenciesModelParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModelParseTests.swift; sourceTree = "<group>"; };
+		A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModelParseTests.swift; sourceTree = "<group>"; };
 		CB4C2E24B26C0D7A1B52CC12 /* Pods_CurrenciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrenciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001934149F047875F2F676E /* Pods_Currencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -171,7 +183,9 @@
 		A10F648521FE6414005E3B3C /* CurrenciesTests */ = {
 			isa = PBXGroup;
 			children = (
-				A10F648621FE6414005E3B3C /* CurrenciesTests.swift */,
+				A11B462B2200FB9F009C9542 /* Parsing */,
+				A11B462A2200FB91009C9542 /* Networking */,
+				A11B46292200FAEC009C9542 /* DepdencyInjection */,
 				A10F648821FE6414005E3B3C /* Info.plist */,
 			);
 			path = CurrenciesTests;
@@ -384,6 +398,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A11B46292200FAEC009C9542 /* DepdencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DepdencyInjection;
+			sourceTree = "<group>";
+		};
+		A11B462A2200FB91009C9542 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A11B462B2200FB9F009C9542 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				A11B46302200FC3D009C9542 /* Mock */,
+				A11B462E2200FC13009C9542 /* TestableEntity.swift */,
+				A11B46352200FCF2009C9542 /* CurrenciesEntityParseTests.swift */,
+				A11B463B220103AF009C9542 /* CurrenciesModelParseTests.swift */,
+				A11B463D220109A3009C9542 /* CurrenciesViewModelParseTests.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		A11B46302200FC3D009C9542 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				A11B46312200FCA3009C9542 /* Rates.json */,
+				A11B46372200FE7C009C9542 /* NoKeys.json */,
+				A11B46382200FE7C009C9542 /* NoRates.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		CD7318BB91BF11842A4ABEB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +474,7 @@
 				A10F647E21FE6414005E3B3C /* Sources */,
 				A10F647F21FE6414005E3B3C /* Frameworks */,
 				A10F648021FE6414005E3B3C /* Resources */,
+				B512167E49AE4E679E400468 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -488,6 +539,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11B463A2200FE7C009C9542 /* NoRates.json in Resources */,
+				A11B46392200FE7C009C9542 /* NoKeys.json in Resources */,
+				A11B46322200FCA3009C9542 /* Rates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,12 +571,8 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 				$SRCROOT/R.generated.swift,
@@ -530,6 +580,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		B512167E49AE4E679E400468 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CurrenciesTests/Pods-CurrenciesTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CurrenciesTests/Pods-CurrenciesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		EDEF7350A8B5E1D8D373DAF7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -616,7 +684,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10F648721FE6414005E3B3C /* CurrenciesTests.swift in Sources */,
+				A11B463E220109A3009C9542 /* CurrenciesViewModelParseTests.swift in Sources */,
+				A11B463C220103AF009C9542 /* CurrenciesModelParseTests.swift in Sources */,
+				A11B46362200FCF2009C9542 /* CurrenciesEntityParseTests.swift in Sources */,
+				A11B462F2200FC13009C9542 /* TestableEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
