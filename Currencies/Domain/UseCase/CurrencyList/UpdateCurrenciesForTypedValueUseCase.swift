@@ -10,20 +10,24 @@ struct UpdateCurrenciesForTypedValueUseCase: SyncUseCase {
     
     func execute(with params: UpdateCurrenciesForTypedValueUseCase.Params?) -> CurrenciesModel? {
         let unwrapped = self.unwrappParams(params)
-        let updatedCurrencyModel = CurrenciesModel.CurrencyModel(mapping: unwrapped.updatedCurrency)
-        var updated: [CurrenciesModel.CurrencyModel] = [updatedCurrencyModel]
+        
+        let beingUpdatedModel = CurrenciesModel.CurrencyModel(mapping: unwrapped.updatedCurrency)
         let value = Double(unwrapped.typedValue) ?? 0
+        let updatedCurrencyModel = CurrenciesModel.CurrencyModel(iconResource: beingUpdatedModel.iconResource,
+                                                                 countryInitials: beingUpdatedModel.countryInitials,
+                                                                 currencyProportion: beingUpdatedModel.currencyProportion,
+                                                                 currencyToDisplay: value)
+        var updated: [CurrenciesModel.CurrencyModel] = [updatedCurrencyModel]
         
         unwrapped.currentCurrencies.currencies.forEach { currencyViewModel in
             let model = CurrenciesModel.CurrencyModel(mapping: currencyViewModel)
             if model.countryInitials != unwrapped.updatedCurrency.countryInitials {
-                let updatedModelCurrency = (value * model.currencyProportion) / updatedCurrencyModel.currencyProportion
+                let updatedModelCurrency = (value * model.currencyProportion) / beingUpdatedModel.currencyProportion
                 let rounded = Double(round(10000 * updatedModelCurrency) / 10000)
-                let proportion = rounded == 0 ? model.currencyProportion: rounded
                 
                 let updatedModel = CurrenciesModel.CurrencyModel(iconResource: model.iconResource,
                                                                  countryInitials: model.countryInitials,
-                                                                 currencyProportion: proportion,
+                                                                 currencyProportion: model.currencyProportion,
                                                                  currencyToDisplay: rounded)
                 updated.append(updatedModel)
             }
