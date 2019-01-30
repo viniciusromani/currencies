@@ -20,6 +20,10 @@ class CurrencyListTableViewCell: UITableViewCell {
         self.buildViews()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.currency.becomeFirstResponder()
+    }
+    
     private func buildViews() {
         self.addSubviews()
         self.formatViews()
